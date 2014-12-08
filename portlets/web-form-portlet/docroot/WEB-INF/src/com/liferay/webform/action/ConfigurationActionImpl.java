@@ -124,9 +124,15 @@ public class ConfigurationActionImpl extends DefaultConfigurationAction {
 				updateModifiedLocales(
 					"fieldOptions" + i, fieldOptionsMap, preferences);
 
+				String defaultFieldLabelValue =
+					LocalizationUtil.getPreferencesValue(
+						preferences, "fieldLabel" + i, defaultLanguageId);
+
+				preferences.setValue("fieldLabel" + i, defaultFieldLabelValue);
 				preferences.setValue("fieldType" + i, fieldType);
 				preferences.setValue(
 					"fieldOptional" + i, String.valueOf(fieldOptional));
+				preferences.setValue("fieldOptions" + i, StringPool.BLANK);
 				preferences.setValue(
 					"fieldValidationScript" + i, fieldValidationScript);
 				preferences.setValue(
